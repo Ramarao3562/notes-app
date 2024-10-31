@@ -19,10 +19,10 @@ pipeline {
                 script {
                     // Install Node.js and npm on Jenkins if not already available
                     if (isUnix()) {
-                        sh "nvm install ${NODE_VERSION}"
-                        sh "nvm use ${NODE_VERSION}"
+                        bat "nvm install ${NODE_VERSION}"
+                        bat "nvm use ${NODE_VERSION}"
                     }
-                    sh 'npm install'
+                    bat 'npm install'
                 }
             }
         }
@@ -30,7 +30,7 @@ pipeline {
         stage('Build Application') {
             steps {
                 echo 'Building application...'
-                sh 'npm run build'
+                bat 'npm run build'
             }
         }
         
